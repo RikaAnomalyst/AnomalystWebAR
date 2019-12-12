@@ -9,10 +9,18 @@
       <a-marker type="pattern" url="https://raw.githubusercontent.com/RikaAnomalyst/AnomalystWebAR/master/pattern-TreeMarker.patt">
           
          <a-entity 
-            position="0 0 0" 
+            position="0 0 0";
+            shadow="cast: true";       
             obj-model="obj: url(https://raw.githubusercontent.com/RikaAnomalyst/AnomalystWebAR/master/Tree4/XMasTree.obj); 
             mtl: url(https://raw.githubusercontent.com/RikaAnomalyst/AnomalystWebAR/master/Tree4/XMasTree.mtl)">
-            shadow="cast: true"
+            
+           <a-animation attribute="rotation"
+             dur="10000"
+              fill="forwards"
+              to="0 360 0"
+              repeat="indefinite">
+           </a-animation>
+
           </a-entity>
        
       </a-marker>    
