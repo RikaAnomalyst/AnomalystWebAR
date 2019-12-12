@@ -5,7 +5,7 @@
 <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script> 
  <script src="https://raw.githubusercontent.com/jeromeetienne/AR.js/master/three.js/demos/shadow.html"></script>
   <body style='margin : 0px; overflow: hidden;'>
-    <a-scene embedded arjs ="debugUIEnabled: false" vr-mode-ui="enabled: false">   
+    <a-scene embedded arjs ="debugUIEnabled: false; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;" vr-mode-ui="enabled: false">   
       <a-marker type="pattern" url="https://raw.githubusercontent.com/RikaAnomalyst/AnomalystWebAR/master/pattern-TreeMarker.patt">
           
          <a-entity 
@@ -15,6 +15,7 @@
           </a-entity>
        
       </a-marker>    
+      <a-entity light="color: #AFA; intensity: 1.5" position="-1 1 0"></a-entity>
       <a-entity position="0 2.25 -15" particle-system="preset: snow; particleCount:600; maxAge:10; size:2; color:white"></a-entity>     
       <a-entity camera></a-entity> 
     </a-scene>
