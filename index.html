@@ -6,20 +6,44 @@
  <script src="https://raw.githubusercontent.com/jeromeetienne/AR.js/master/three.js/demos/shadow.html"></script>
   <body style='margin : 0px; overflow: hidden;'>
      <a-scene embedded arjs ="debugUIEnabled: false"; vr-mode-ui="enabled: false"; renderer="logarithmicDepthBuffer:true;" shadow="autoUpdate:true">     
+      
+      <a-assets>
+          <audio id="sound" url="https://raw.githubusercontent.com/RikaAnomalyst/AnomalystWebAR/master/Audio/Kai_Engel_-_03_-_Holiday_Gift.mp3" preload="auto"></audio>
+      </a-assets>
+      
       <a-marker type="pattern" url="https://raw.githubusercontent.com/RikaAnomalyst/AnomalystWebAR/master/pattern-TreeMarker.patt">
           
          <a-entity 
             gltf-model="url(https://raw.githubusercontent.com/RikaAnomalyst/AnomalystWebAR/master/Tree7/Tree7.glb)" 
-            shadow="receive:true; cast=true">
-            
+            shadow="receive:true; cast=true">            
          </a-entity>
+       
          <a-entity position="1.5 2 0" particle-system="preset:default; type:2; randomise:true; accelerationSpread:1 1 1; maxAge:1; accelerationValue:0.5,0.5,0.5; particleCount:10; velocityValue:0.1 0.1 0.1; size:1; texture:https://raw.githubusercontent.com/RikaAnomalyst/AnomalystWebAR/master/Graphics/Heart.png"></a-entity>     
                  
-      </a-marker>    
+      </a-marker>
+      
       <a-entity light="type:directional; color:#F3EBD8; castShadow:true;" position="2 2 2"></a-entity>
       <a-light type='ambient' color="#DFCAEE"></a-light> 
       <a-entity position="0 2.25 -15" particle-system="preset: snow; particleCount:600; maxAge:10; size:2; color:white"></a-entity>
+      
+      <a-entity sound="src: #sound" autoplay="false"></a-entity>      
       <a-entity camera></a-entity> 
     </a-scene>
+   
+   <script>
+    AFRAME.registerComponent('soundhandler', {
+       tick: function () {
+       var entity = document.querySelector('[sound]');
+       if (document.querySelector('a-marker').object3D.visible == true){
+            entity.components.sound.playSound();
+        } 
+        else {
+            entity.components.sound.pauseSound();
+        }
+
+     }
+       });
+     </script>
+   
   </body>
 </html>
