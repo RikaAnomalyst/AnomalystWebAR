@@ -6,11 +6,7 @@
  <script src="https://raw.githubusercontent.com/jeromeetienne/AR.js/master/three.js/demos/shadow.html"></script>
   <body style='margin : 0px; overflow: hidden;'>
      <a-scene embedded arjs ="debugUIEnabled: false"; vr-mode-ui="enabled: false"; renderer="logarithmicDepthBuffer:true;" shadow="autoUpdate:true">     
-      
-      <a-assets>
-          <audio="url(https://raw.githubusercontent.com/RikaAnomalyst/AnomalystWebAR/master/Audio/Kai_Engel_-_03_-_Holiday_Gift.mp3)" id="sound" preload="auto"></audio>
-      </a-assets>
-      
+           
       <a-marker type="pattern" url="https://raw.githubusercontent.com/RikaAnomalyst/AnomalystWebAR/master/pattern-TreeMarker.patt">
           
          <a-entity 
@@ -26,24 +22,9 @@
       <a-light type='ambient' color="#DFCAEE"></a-light> 
       <a-entity position="0 2.25 -15" particle-system="preset: snow; particleCount:600; maxAge:10; size:2; color:white"></a-entity>
       
-      <a-entity sound="src: #sound" autoplay="true"></a-entity>      
+      <a-entity sound="url(https://raw.githubusercontent.com/RikaAnomalyst/AnomalystWebAR/master/Audio/Kai_Engel_-_03_-_Holiday_Gift.mp3)" autoplay="true"></a-entity>      
       <a-entity camera></a-entity> 
-    </a-scene>
-   
-   <script>
-    AFRAME.registerComponent('soundhandler', {
-       tick: function () {
-       var entity = document.querySelector('[sound]');
-       if (document.querySelector('a-marker').object3D.visible == true){
-            entity.components.sound.playSound();
-        } 
-        else {
-            entity.components.sound.pauseSound();
-        }
-
-     }
-       });
-     </script>
+    </a-scene>   
    
   </body>
 </html>
