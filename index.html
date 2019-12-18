@@ -8,7 +8,7 @@
      <a-scene embedded arjs ="debugUIEnabled: false"; vr-mode-ui="enabled: false"; renderer="logarithmicDepthBuffer:true;" shadow="autoUpdate:true">     
       
       <a-assets>
-          <audio id="sound" src="url(https://raw.githubusercontent.com/RikaAnomalyst/AnomalystWebAR/master/Audio/Kai_Engel_-_03_-_Holiday_Gift.mp3)" preload="auto"></audio>
+          <audio="url(https://raw.githubusercontent.com/RikaAnomalyst/AnomalystWebAR/master/Audio/Kai_Engel_-_03_-_Holiday_Gift.mp3)" id="sound" preload="auto"></audio>
       </a-assets>
       
       <a-marker type="pattern" url="https://raw.githubusercontent.com/RikaAnomalyst/AnomalystWebAR/master/pattern-TreeMarker.patt">
@@ -26,7 +26,7 @@
       <a-light type='ambient' color="#DFCAEE"></a-light> 
       <a-entity position="0 2.25 -15" particle-system="preset: snow; particleCount:600; maxAge:10; size:2; color:white"></a-entity>
       
-      <a-entity sound="src: #sound" autoplay="false"></a-entity>      
+      <a-entity sound="src: #sound" autoplay="true"></a-entity>      
       <a-entity camera></a-entity> 
     </a-scene>
    
